@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--用于指定当前映射文件和哪个接口映射，需要指定接口的文件路径，需要标注包的完整路径结构-->
+<mapper namespace="com.zy.zymovies.mapper.MovieMapper">
+
+
+
+    <resultMap id="getMovie" type="com.zy.zymovies.entity.Movie">
+
+        <id column="mid" property="mid"></id>
+
+    </resultMap>
+
+
+    <select id="getMovieByMid" resultMap="getMovie">
+        SELECT * FROM t_movie WHERE mid=#{mid}
+    </select>
+    <select id="getAllMovie" resultType="com.zy.zymovies.entity.Movie">
+        SELECT * FROM t_movie
+    </select>
+
+</mapper>

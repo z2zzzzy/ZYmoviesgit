@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--edge浏览器H5兼容设置-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--360浏览器H5兼容设置-->
+		<meta name="renderer" content="webkit" />
+		<title>电脑商城</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--导入核心文件-->
+		<script src="../bootstrap3/js/holder.js"></script>
+		<link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<script src="../bootstrap3/jquery-1.8.3.min.js"></script>
+		<script src="../bootstrap3/js/bootstrap.js"></script>
+		<script src="../js/menu.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 字体图标 -->
+		<link rel="stylesheet" href="../bootstrap3/font-awesome-4.7.0/css/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="../css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../css/webindex.css" />
+		<link rel="stylesheet" type="text/css" href="../css/footer.css" />
+		<link rel="stylesheet" type="text/css" href="../css/top.css" />
+		<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<style type="text/css">
+			.cardBox {
+				width: 200px;
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+				text-align: center;
+				float: left;
+				margin-right: 10px;
+				padding: 5px;
+				padding-top: 15px;
+			}
+
+			.headerBox {
+				color: #fff;
+				padding: 10px;
+				font-size: 15px;
+				height: 60px;
+			}
+
+			.bodyBox {
+				padding: 10px;
+			}
+
+			.bodyBox p {
+				margin-left: 5px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<!--头部-->
+		<header class="header">
+			<!--电脑商城logo-->
+			<div class="row">
+				<div class="col-md-3">
+					<a href="index.html">
+						<img src="../images/index/logo.png" />
+					</a>
+				</div>
+				<!--快捷选项-->
+				<div class="col-md-9 top-item">
+					<ul class="list-inline pull-right">
+						<li><a href="index.html"><span class="fa fa-heart"></span>&nbsp;主页</a></li>
+						<li class="li-split">|</li>
+						<li><a href="iwant.html"><span class="fa fa-file-text"></span>&nbsp;“想看”</a></li>
+						<li class="li-split">|</li>
+						<li><a href="iwatched.html"><span class="fa fa-cart-plus"></span>&nbsp;"已看"</a></li>
+						<li class="li-split">|</li>
+						<li><a href="icomment.html"><span class="fa fa-cart-plus"></span>&nbsp;影评</a></li>
+						<li class="li-split">|</li>
+						<li>
+							<!--下列列表按钮 ：管理-->
+							<div class="btn-group">
+								<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+									<span id="top-dropdown-btn"><span class="fa fa-gears"></span>&nbsp;管理 <span class="caret"></span></span>
+								</button>
+								<ul class="dropdown-menu top-dropdown-ul" role="menu">
+									<li><a href="password.html">修改密码</a></li>
+									<li><a href="userdata.html">个人资料</a></li>
+									<li><a href="upload.html">上传头像</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="li-split">|</li>
+						<li><a href="login.html"><span class="fa fa-user"></span>&nbsp;登录</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div class="container">
+			<div class="container_test">
+
+			</div>
+
+
+
+
+
+		</div>
+		<div>
+
+
+		</div>
+		<!--页脚开始-->
+		<footer class="footer">
+			<!-- 品质保障，私人定制等-->
+			<div class="text-center rights container">
+				<div class="regDiv">
+					<p>想看电影</p>
+					<!--表单开始-->
+					<form id="form-reg" class="form-horizontal" role="form" onsubmit="return beforeSubmit(this);">
+						<!--用户名-->
+						<div class="form-group">
+							<label class="col-md-3 control-label">电影ID：</label>
+							<div class="col-md-8">
+								<input name="mid" type="text" class="form-control" placeholder="请输入电影ID">
+							</div>
+						</div>
+
+
+						<!--提交按钮-->
+						<div class="form-group">
+							<label class="col-md-3 control-label"></label>
+							<div class="col-md-8" >
+								<input id="btn-reg" class="btn btn-primary" type="button" value="添加到“想看”" />
+<!--								<span class="pull-right"><small>已经有账号？</small><a href="login.html">登录</a></span>-->
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="regDiv">
+					<p>已看电影</p>
+					<!--表单开始-->
+					<form id="form-reg2" class="form-horizontal" role="form">
+						<!--用户名-->
+						<div class="form-group">
+							<label class="col-md-3 control-label">电影ID：</label>
+							<div class="col-md-8">
+								<input name="mid" type="text" class="form-control" placeholder="请输入电影ID">
+							</div>
+							<label class="col-md-3 control-label">你的评分：</label>
+							<div class="col-md-8">
+								<input name="myrate" type="text" class="form-control" placeholder="请输入你的评分">
+							</div>
+						</div>
+
+
+						<!--提交按钮-->
+						<div class="form-group">
+							<label class="col-md-3 control-label"></label>
+							<div class="col-md-8">
+								<input id="btn-reg2" class="btn btn-primary" type="button" value="记录“已看”" />
+<!--								<span class="pull-right"><small>已经有账号？</small><a href="login.html">登录</a></span>-->
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+
+			<!-- 页面底部-备案号 #footer -->
+			<div class="col-md-12 text-center bottom">
+				Copyright © 2022 whut J2EE
+			</div>
+
+		</footer>
+		<!--页脚结束-->
+	</body>
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+			showHotList();
+		});
+		function showHotList() {
+			// $('.table_node').empty()
+			$('.container_test').empty()
+			$.ajax({
+				url:"/movie/movielist",
+				type:"GET",
+				dataType:"JSON",
+				success:function(data){
+
+					let list=data;
+					console.log(list)
+
+
+
+					for(let i=0;i<list.length;i++){
+						var child_test="<div class='cardBox'>"
+									+"<div class='headerBox' style='background-color: #4caf50;'>"
+										+"<p align='center'>"
+											+"<a style='cursor:pointer;color:white' href='iwant.html'> "
+													+"《"+list[i].mname+"》"
+											+"</a>"
+										+"</p>"
+									+"</div>"
+								+"<div class='bodyBox'>"
+									+"<p align='left'>"+"电影ID："
+										+"<a href='javascript:void(0)' class='label label-success' style='border-radius: .25em;'>"
+											+list[i].mid
+										+"</a>"
+									+"</p>"
+									+"<p align='left'>"+"导演："
+										+"<a href='javascript:void(0)' class='label label-success' style='border-radius: .25em;'>"
+											+list[i].director
+										+"</a>"
+									+"</p>"
+
+									+"<p align='left'>"+"类型："
+										+"<a href='javascript:void(0)' class='label label-success' style='border-radius: .25em;'>"
+											+list[i].type
+										+"</a>"
+									+"</p>"
+
+									+"<p align='left'>"+"上映日期："
+										+"<a href='javascript:void(0)' class='label label-success' style='border-radius: .25em;'>"
+											+list[i].date
+										+"</a>"
+									+"</p>"
+
+									+"<p align='left'>"+"评分："
+										+"<a href='javascript:void(0)' class='label label-success' style='border-radius: .25em;'>"
+											+list[i].rate
+										+"</a>"
+									+"</p>"
+
+									+"<p align='left'>"+"国家/地区："
+										+"<a href='javascript:void(0)' class='label label-success' style='border-radius: .25em;'>"
+											+list[i].country
+										+"</a>"
+									+"</p>"
+
+								+"</div>"
+						+"</div>"
+						$(".container_test").append(child_test)
+
+
+
+
+
+					}
+				}
+			});
+		}
+		/*测试*/
+		$("#btn-reg").click(function() {
+				console.log($("#form-reg").serialize());
+				$.ajax({
+					url: "/movie/addIWant",
+					type: "POST",
+					data: $("#form-reg").serialize(),
+					dataType: "json",
+					success: function (json) {
+						if (json.state == 200) {
+							alert("添加成功！");
+							location.href = "index.html";
+						} else {
+							alert("添加失败！" + json.message);
+						}
+					}
+				});
+		});
+
+		$("#btn-reg2").click(function() {
+
+				console.log($("#form-reg2").serialize());
+				$.ajax({
+					url: "/movie/addIWatched",
+					type: "POST",
+					data: $("#form-reg2").serialize(),
+					dataType: "json",
+					success: function (json) {
+						if (json.state == 200) {
+							alert("添加成功！");
+							location.href = "index.html";
+						} else {
+							alert("添加失败！" + json.message);
+						}
+					}
+				});
+
+		});
+
+
+	</script>
+
+</html>

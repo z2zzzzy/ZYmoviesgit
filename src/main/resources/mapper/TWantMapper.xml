@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.zymovies.mapper.TWantMapper">
+
+    <resultMap id="getTWant" type="com.zy.zymovies.entity.TWant">
+
+        <id column="want_id" property="want_id"></id>
+
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        want_id,date,uid,
+        mid
+    </sql>
+    <insert id="AddIWantWatch" useGeneratedKeys="true" keyProperty="want_id">
+        INSERT INTO t_want(date,
+                           uid,
+                           mid)
+        VALUES (#{date,jdbcType=DATE}, #{uid}, #{mid})
+    </insert>
+    <select id="doesWanted" resultMap="getTWant">
+        SELECT * FROM t_want WHERE uid=#{uid} AND mid=#{mid}
+    </select>
+    <delete id="deleteByMidAndUid">
+        delete
+        from t_want
+        where mid = #{mid}
+          AND uid = #{uid}
+    </delete>
+    <select id="searchAllByUid" resultMap="getTWant">
+        select
+        <include refid="Base_Column_List"/>
+        from t_want
+        where
+        uid = #{uid,jdbcType=NUMERIC}
+    </select>
+</mapper>

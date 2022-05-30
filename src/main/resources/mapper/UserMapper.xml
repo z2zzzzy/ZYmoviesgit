@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--用于指定当前映射文件和哪个接口映射，需要指定接口的文件路径，需要标注包的完整路径结构-->
+<mapper namespace="com.zy.zymovies.mapper.UserMapper">
+    <!--自定义映射规则：resultMap标签来完成映射规则的定义-->
+    <!--
+        id属性：给这个映射负责分配一个唯一的id值，对应的就是resultMap="id属性的值"
+        type属性：取值是一个类，数据库中的查询结果与Java中哪个实体类进行结果集的映射
+    -->
+    <resultMap id="getUser" type="com.zy.zymovies.entity.User">
+
+        <id column="uid" property="uid"></id>
+
+    </resultMap>
+
+    <resultMap id="getMovie" type="com.zy.zymovies.entity.Movie">
+
+        <id column="mid" property="mid"></id>
+
+    </resultMap>
+
+    <!--id属性：表示映射的接口中方法的名称，直接在标签的内部来编写SQL语句-->
+    <insert id="register" useGeneratedKeys="true" keyProperty="uid">
+        INSERT INTO t_user(username,
+                            password,
+                            salt,
+                            phone,
+                            email,
+                            gender)
+        VALUES (#{username}, #{password}, #{salt}, #{phone}, #{email}, #{gender})
+    </insert>
+    <select id="nameDoesExist" resultMap="getUser">
+        SELECT * FROM t_user WHERE username=#{username}
+    </select>
+    <select id="getMovieByMid" resultMap="getMovie">
+        SELECT * FROM t_movie WHERE mid=#{mid}
+    </select>
+    <update id="changePassword">
+        UPDATE t_user SET password=#{newPassword} WHERE username=#{username}
+    </update>
+    <update id="changeInfo">
+        UPDATE t_user SET phone=#{phone},email=#{email},gender=#{gender} WHERE username=#{username}
+    </update>
+    <select id="selectUsernameByUid" resultMap="getUser">
+        select username
+        from t_user
+        where uid = #{uid,jdbcType=NUMERIC}
+    </select>
+</mapper>

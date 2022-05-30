@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.zymovies.mapper.TWatchedMapper">
+
+    <resultMap id="BaseResultMap" type="com.zy.zymovies.entity.TWatched">
+            <id property="watchedid" column="watchedId" jdbcType="INTEGER"/>
+            <result property="date" column="date" jdbcType="TIMESTAMP"/>
+            <result property="myrate" column="myrate" jdbcType="INTEGER"/>
+            <result property="mid" column="mid" jdbcType="INTEGER"/>
+            <result property="uid" column="uid" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        watchedId,date,myrate,
+        mid,uid
+    </sql>
+    <insert id="addIWatched">
+        insert into t_watched
+        (watchedId, date, myrate,
+         mid, uid)
+        values (#{watchedid,jdbcType=NUMERIC}, #{date,jdbcType=TIMESTAMP}, #{myrate,jdbcType=NUMERIC},
+                #{mid,jdbcType=NUMERIC}, #{uid,jdbcType=NUMERIC})
+
+    </insert>
+    <select id="selectByMidAndUid" resultMap="BaseResultMap">
+        select
+        *
+        from t_watched
+        where
+        mid = #{mid,jdbcType=NUMERIC}
+        AND uid = #{uid,jdbcType=NUMERIC}
+    </select>
+    <delete id="deleteByMidAndUid">
+        delete
+        from t_watched
+        where mid = #{mid,jdbcType=NUMERIC}
+          AND uid = #{uid,jdbcType=NUMERIC}
+    </delete>
+    <select id="searchAllByUid" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_watched
+        where
+        uid = #{uid,jdbcType=NUMERIC}
+    </select>
+
+</mapper>
